@@ -17,12 +17,13 @@ describe 'Round' do
   end
 
   it "can return winner of round" do
-    newerRound = @db.Round.new(7, {p1_move: "rock", p2_move: "paper"})
-    expect(@newerRound.winner).to eq("Player 2")
+    newerRound = RPS::Round.new(7, {p1_move: "rock", p2_move: "paper"})
+    expect(newerRound.winner).to eq("p2")
   end
 
-  xit "knows the match with which it is associated" do
-
+  it "knows the match with which it is associated" do
+    result = @newRound.match_id
+    expect(result).to eq(10)
   end
 
 end

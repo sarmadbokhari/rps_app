@@ -1,6 +1,6 @@
 module RPS
   class User
-  attr_accessor :username
+  attr_accessor :username, :uid
 
     @@user_iter = 0
 
