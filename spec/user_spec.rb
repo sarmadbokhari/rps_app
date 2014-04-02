@@ -1,5 +1,4 @@
 describe "User" do
-
   before do
     @new_user = RPS::User.new("Ozzy")
   end
