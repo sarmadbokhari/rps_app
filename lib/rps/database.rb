@@ -1,6 +1,6 @@
 module RPS
 
-  def self.do
+  def self.db
     @__db_instance ||= Database.new
   end
 

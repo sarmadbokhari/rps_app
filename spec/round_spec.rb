@@ -7,7 +7,7 @@ describe 'Round' do
   end
 
   it "can be initialized with an id" do
-    expect(@newRound.rid).to be_a(Fixnum)
+    expect(@newRound.id).to be_a(Fixnum)
     expect(@newRound.match_id).to eq(10)
   end
 

@@ -1,13 +1,13 @@
 module RPS
   class Round
 
-    attr_reader :rid, :match_id, :move_hash
+    attr_reader :id, :match_id, :move_hash
 
     @@round_iter = 0
 
     def initialize(match_id, move_hash = {})
       @@round_iter += 1
-      @rid = @@round_iter
+      @id = @@round_iter
       @winner = ""
       @match_id = match_id
       @p1_move = nil
