@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe 'Database' do
   before do
-    @db = RPS::Database.new
+    @db = RPS.db
   end
 
   describe "User" do
@@ -10,7 +10,7 @@ describe 'Database' do
     xit "can create a user and assign an id" do
       user1 = @db.user.new("Ifu")
       expect(user1.username).to eq("Ifu")
-      expect(user1.uid).to be_a(Fixnum)
+      expect(user1.id).to be_a(Fixnum)
     end
 
     xit "can update a users username" do

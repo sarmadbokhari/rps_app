@@ -4,10 +4,11 @@ module RPS
 
     @@user_iter = 0
 
-    def initialize(username)
+    def initialize(username, password)
       @username = username
+      @password = password
       @@user_iter +=1
-      @uid = @@user_iter
+      @id = @@user_iter
     end
 
   end
