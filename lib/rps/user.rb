@@ -10,8 +10,5 @@ module RPS
       @uid = @@user_iter
     end
 
-
-
-
   end
 end
