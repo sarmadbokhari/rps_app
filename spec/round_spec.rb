@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe 'Round' do
-
   before do
     @newRound = RPS::Round.new(10, {p1_move: "rock", p2_move: "paper"})
   end
