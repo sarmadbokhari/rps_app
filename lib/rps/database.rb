@@ -1,7 +1,28 @@
 module RPS
+
+  def self.do
+    @__db_instance ||= Database.new
+  end
+
   class Database
+    attr_accessor :user, :match, :game, :invite
 
     def initialize
+      @user = {
+        #uid => id obj
+      }
+
+      @match = {
+        #mid => match obj
+      }
+
+      @game = {
+        #gid => game obj
+      }
+
+      @invite = {
+        #iid => invite obj
+      }
 
     end
 
@@ -10,6 +31,8 @@ module RPS
 
       end
     end
+
+
 
 
   end
