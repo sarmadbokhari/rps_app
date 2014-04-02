@@ -3,6 +3,8 @@ module RPS
 
     @@user_iter = 0
 
+    attr_accessor :username
+
     def initialize(username)
       @username = username
       @@user_iter +=1
