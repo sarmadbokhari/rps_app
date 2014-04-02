@@ -8,7 +8,6 @@ module RPS
     attr_accessor :user, :match, :game, :invite
 
     def initialize
-<<<<<<< HEAD
       @all_users = {}
       @all_rounds = {}
       @all_matches = {}
@@ -43,23 +42,7 @@ module RPS
     end
 
 # --- ROUND METHODS ---
-=======
-      @user = {
-        #uid => id obj
-      }
 
-      @match = {
-        #mid => match obj
-      }
-
-      @game = {
-        #gid => game obj
-      }
-
-      @invite = {
-        #iid => invite obj
-      }
->>>>>>> 505c0d08370d1ae46b806acf40734f2a43386ad6
 
     def create_round(match_id, move_hash)
       new_round = Round.new(match_id, move_hash)

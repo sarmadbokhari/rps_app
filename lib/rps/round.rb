@@ -1,12 +1,10 @@
 module RPS
   class Round
 
-<<<<<<< HEAD
-    attr_reader :rid, :match_id, :move_hash
-    attr_accessor :p1_move, :p2_move
-=======
+
     attr_reader :id, :match_id, :move_hash
->>>>>>> 505c0d08370d1ae46b806acf40734f2a43386ad6
+    attr_accessor :p1_move, :p2_move
+
 
     @@round_iter = 0
 
