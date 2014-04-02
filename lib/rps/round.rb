@@ -24,19 +24,6 @@ module RPS
       end
     end
 
-    def winner
-      return nil if move_hash[:p1_move] == move_hash[:p2_move]
-
-      if move_hash.length == 2
-        if (@p1_move == "rock")
-          winner = @p2_move == "scissors" ? "p1" : "p2"
-        elsif (p1_move == "paper")
-            winner = @p2_move == "rock" ? "p1" : "p2"
-        else
-          winner = @p2_move == "paper" ? "p1" : "p2"
-        end
-      end
-    end
 
   end
 end

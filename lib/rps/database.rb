@@ -65,10 +65,25 @@ module RPS
       end
     end
 
+    def round_winner
+      return nil if move_hash[:p1_move] == move_hash[:p2_move]
+
+      if move_hash.length == 2
+        if (@p1_move == "rock")
+          winner = @p2_move == "scissors" ? "p1" : "p2"
+        elsif (p1_move == "paper")
+            winner = @p2_move == "rock" ? "p1" : "p2"
+        else
+          winner = @p2_move == "paper" ? "p1" : "p2"
+        end
+      end
+    end
+
 # --- MATCH METHODS ---
 
-    def create_match()
-      new_match = Match.new()
+
+    def create_match(user1_id, user2_id)
+      new_match = Match.new(user1_id, user2_id)
       @all_matches[new_match.id] = new_match
       new_match
     end
@@ -76,12 +91,6 @@ module RPS
     def get_match(match_id)
       @all_matches[match_id]
     end
-
-    def update_match(match_id, match_hash)
-
-    end
-
-
 
   end
 

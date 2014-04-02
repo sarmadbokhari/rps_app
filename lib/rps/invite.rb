@@ -1,7 +1,8 @@
 module RPS
   class Invite
 
-    attr_reader
+    attr_reader :id
+    attr_accessor :status
 
     @@invite_iter = 0
 
@@ -11,7 +12,7 @@ module RPS
 
       @inviter_id = inviter_id
       @target_id = target_id
-      @status = "pending"
+      @status = false
     end
 
   end
