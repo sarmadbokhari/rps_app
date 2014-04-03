@@ -50,7 +50,6 @@ module RPS
 
 # --- ROUND METHODS ---
 
-
     def create_round(match_id, move_hash)
       new_round = Round.new(match_id, move_hash)
       @all_rounds[new_round.id] = new_round
@@ -86,7 +85,12 @@ module RPS
       end
     end
 
+    def ls_rounds
+      @all_rounds
+    end
+
 # --- MATCH METHODS ---
+# Match refers to a game of 3-5 rounds
 
     def create_match(user1_id, user2_id)
       new_match = Match.new(user1_id, user2_id)
@@ -96,6 +100,10 @@ module RPS
 
     def get_match(match_id)
       @all_matches[match_id]
+    end
+
+    def ls_matches
+      @all_matches
     end
 
 # --- INVITE METHODS ---
@@ -108,10 +116,11 @@ module RPS
     @all_invites[invite_id]
   end
 
-  def update_invite(invite_id, response)
+  def update_invite(invite_id)
     if @all_invites[invite_id]
       @all_invites[invite_id].status = true
     end
+    nil
   end
 
 end
