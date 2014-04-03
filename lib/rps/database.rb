@@ -36,9 +36,11 @@ module RPS
         if data_hash[:password]
 
         end
-
       end
+    end
 
+    def ls_users
+      @all_users
     end
 
 # --- ROUND METHODS ---

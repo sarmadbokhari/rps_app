@@ -13,11 +13,13 @@ describe 'Database' do
       expect(user1.id).to be_a(Fixnum)
     end
 
-    xit "can update a users username" do
+    xit "can update a user's username" do
       user1 = @db.user.new("Ifu")
       user1.name = "Someone Else"
       expect(user1.name).to eq("Someone Else")
     end
+
+
 
   end
 
