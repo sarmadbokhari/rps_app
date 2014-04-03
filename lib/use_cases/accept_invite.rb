@@ -5,7 +5,7 @@ module RPS
       invite = RPS.db.get_invite(inputs[:invite_id].to_i)
       return failure(:invite_does_not_exist) if invite.nil?
 
-      updated_task = mark_task_complete(task)
+      updated_invite = mark_task_complete(task)
       # Return a success with relevant data
       success :task => updated_task
     end
