@@ -8,9 +8,14 @@ module RPS
     attr_accessor :user, :match, :game, :invite
 
     def initialize
+      # @all_users = {user_id => user_obj}
       @all_users = {}
+      # @all_rounds = {round_id => round_obj}
       @all_rounds = {}
+      # @all_matches = {match_id => match_obj}
       @all_matches = {}
+      # @all_invites = {invite_id => invite_obj}
+      @all_invites = {}
     end
 
 # --- USER METHODS ---
@@ -93,7 +98,20 @@ module RPS
       @all_matches[match_id]
     end
 
+# --- INVITE METHODS ---
+
+  def create_invite(inviter_id, target_id)
+    rsvp = Invite.new(inviter_id, target_id)
   end
 
+  def get_invite(invite_id)
+    @all_invites[invite_id]
+  end
+
+  def update_invite(invite_id, response)
+    if @all_invites[invite_id]
+      @all_invites[invite_id].status = true
+    end
+  end
 
 end

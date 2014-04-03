@@ -1,7 +1,7 @@
 module RPS
   class Invite
 
-    attr_reader :id
+    attr_reader :id, :inviter_id, :target_id
     attr_accessor :status
 
     @@invite_iter = 0
