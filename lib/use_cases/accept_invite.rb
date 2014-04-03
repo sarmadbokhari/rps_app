@@ -2,8 +2,8 @@ module RPS
   class AcceptInvite < UseCase
 
     def run(inputs)
-      task = TM.db.get_task(inputs[:task_id].to_i)
-      return failure(:task_does_not_exist) if task.nil?
+      invite = RPS.db.get_invite(inputs[:invite_id].to_i)
+      return failure(:invite_does_not_exist) if invite.nil?
 
       updated_task = mark_task_complete(task)
       # Return a success with relevant data

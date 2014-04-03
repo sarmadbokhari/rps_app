@@ -104,5 +104,14 @@ module RPS
     rsvp = Invite.new(inviter_id, target_id)
   end
 
-  def
+  def get_invite(invite_id)
+    @all_invites[invite_id]
+  end
+
+  def update_invite(invite_id, response)
+    if @all_invites[invite_id]
+      @all_invites[invite_id].status = true
+    end
+  end
+
 end
