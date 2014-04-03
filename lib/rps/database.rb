@@ -81,7 +81,6 @@ module RPS
 
 # --- MATCH METHODS ---
 
-
     def create_match(user1_id, user2_id)
       new_match = Match.new(user1_id, user2_id)
       @all_matches[new_match.id] = new_match
@@ -94,7 +93,5 @@ module RPS
 
   end
 
-   def self.db
-    @__db_instance ||= Database.new
-    end
+
 end
