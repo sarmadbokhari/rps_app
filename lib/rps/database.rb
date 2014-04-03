@@ -15,8 +15,8 @@ module RPS
 
 # --- USER METHODS ---
 
-    def create_user(user_name, password)
-      new_user = User.new(user_name, password)
+    def create_user(username, password)
+      new_user = User.new(username, password)
       @all_users[new_user.id] = new_user
       new_user
     end
@@ -28,8 +28,8 @@ module RPS
     def update_user(user_id, data_hash)
 
       if @all_users[user_id]
-        if data_hash[:user_name]
-          @all_users[user_id].user_name = data_hash[:user_name]
+        if data_hash[:username]
+          @all_users[user_id].user_name = data_hash[:username]
         end
         # Update password if user first enters
         # correct password

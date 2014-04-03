@@ -1,6 +1,6 @@
 describe "User" do
   before do
-    @new_user = RPS::User.new("Ozzy")
+    @new_user = RPS::User.new("Ozzy", "password")
   end
 
   it "can initialize with an id" do
