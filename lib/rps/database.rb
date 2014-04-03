@@ -5,7 +5,7 @@ module RPS
   end
 
   class Database
-    attr_accessor :user, :match, :game, :invite
+    attr_accessor :all_users, :all_matches, :all_rounds , :all_invites
 
     def initialize
       # @all_users = {user_id => user_obj}
@@ -114,4 +114,5 @@ module RPS
     end
   end
 
+end
 end
