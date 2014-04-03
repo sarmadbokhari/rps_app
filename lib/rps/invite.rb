@@ -12,6 +12,8 @@ module RPS
 
       @inviter_id = inviter_id
       @target_id = target_id
+      # a status of false indicates that the invitation
+      # has not yet been accepted
       @status = false
     end
 

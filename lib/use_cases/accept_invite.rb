@@ -14,6 +14,7 @@ module RPS
     def acccept_invitation(invite_id)
       RPS.db.update_invite(invite_id, {complete: true})
       invite = RPS.db.get_invite(invite_id)
+      # player 1 is the inviter, player 2 the target
       RPS.db.create_match(invite.inviter_id, invite.target_id)
     end
 

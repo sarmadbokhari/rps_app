@@ -1,7 +1,7 @@
 module RPS
   class Match
     attr_reader :p1_id, :p2_id, :id, :current_round_id
-    attr_accessor :status
+    attr_accessor :status, :history
 
     @@match_iter = 0
 
@@ -10,12 +10,14 @@ module RPS
       @id = @@match_iter
       @p1_id = u1_id
       @p2_id = u2_id
-      @status = false
+      # status of true indicates an active match
+      @status = true
       @num_rounds = 0
       # 0 - there is no winner for the match
       # 1 - the winner is player 1
       # 2 - the winner is player 2
       @winner = 0
+      @history = []
     end
 
   end

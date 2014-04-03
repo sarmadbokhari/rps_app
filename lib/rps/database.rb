@@ -66,7 +66,7 @@ module RPS
           @all_rounds[round_id].p1_move = data_hash[:p1_move]
         end
         if data_hash[:p2_move]
-          @all_rounds[round_id].p2_move
+          @all_rounds[round_id].p2_move = data_hash[:p2_move]
         end
       end
     end
