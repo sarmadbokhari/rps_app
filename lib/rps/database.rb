@@ -19,7 +19,6 @@ module RPS
     end
 
 # --- USER METHODS ---
-
     def create_user(username, password)
       new_user = User.new(username, password)
       @all_users[new_user.id] = new_user
@@ -49,9 +48,8 @@ module RPS
     end
 
 # --- ROUND METHODS ---
-
-    def create_round(match_id, move_hash)
-      new_round = Round.new(match_id, move_hash)
+    def create_round(match_id)
+      new_round = Round.new(match_id)
       @all_rounds[new_round.id] = new_round
       new_round
     end
@@ -69,12 +67,14 @@ module RPS
           @all_rounds[round_id].p2_move = data_hash[:p2_move]
         end
       end
+      @all_rounds[round_id]
     end
 
-    def round_winner
-      return nil if move_hash[:p1_move] == move_hash[:p2_move]
+    def round_winner(round_id)
+      round = self.get_round(round_id)
+      return nil if round.p1_move == nil || round.p2_move == nil
+      return nil if round.p1_move == round.p2_move
 
-      if move_hash.length == 2
         if (@p1_move == "rock")
           winner = @p2_move == "scissors" ? "p1" : "p2"
         elsif (p1_move == "paper")
@@ -91,7 +91,6 @@ module RPS
 
 # --- MATCH METHODS ---
 # Match refers to a game of 3-5 rounds
-
     def create_match(user1_id, user2_id)
       new_match = Match.new(user1_id, user2_id)
       @all_matches[new_match.id] = new_match
@@ -102,26 +101,47 @@ module RPS
       @all_matches[match_id]
     end
 
+    def update_match(match_id, data_hash)
+      if @all_matches[match_id]
+        if data_hash[:history]
+          @all_matches[match_id].history << data_hash[:history]
+        end
+      end
+    end
+
     def ls_matches
       @all_matches
     end
 
-# --- INVITE METHODS ---
-
-  def create_invite(inviter_id, target_id)
-    rsvp = Invite.new(inviter_id, target_id)
-  end
-
-  def get_invite(invite_id)
-    @all_invites[invite_id]
-  end
-
-  def update_invite(invite_id)
-    if @all_invites[invite_id]
-      @all_invites[invite_id].status = true
+    def match_winner(match_id)
+      match = get_match(match_id)
+      if match
+        if match.p1_wins >=3
+          return "p1"
+        elsif match.p2_wins >= 3
+            return "p2"
+          else
+            return nil
+        end
+      end
+      nil
     end
-    nil
-  end
+
+  # --- INVITE METHODS ---
+    def create_invite(inviter_id, target_id)
+      rsvp = Invite.new(inviter_id, target_id)
+    end
+
+    def get_invite(invite_id)
+      @all_invites[invite_id]
+    end
+
+    def update_invite(invite_id)
+      if @all_invites[invite_id]
+        @all_invites[invite_id].status = true
+      end
+      nil
+    end
 
 end
 end

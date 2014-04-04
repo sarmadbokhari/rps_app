@@ -14,7 +14,7 @@ module RPS
     def list_active_matches
       all_matches = RPS.db.ls_matches
       match_arr = []
-      all_matches.each do |match|
+      all_matches.each do |match_id, match|
         if !match.status
           match_arr << match
         end

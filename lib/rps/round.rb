@@ -1,10 +1,8 @@
 module RPS
   class Round
 
-
     attr_reader :id, :match_id
     attr_accessor :p1_move, :p2_move, :status
-
 
     @@round_iter = 0
 
@@ -15,17 +13,9 @@ module RPS
       @match_id = match_id
       @p1_move = nil
       @p2_move = nil
-      @move_hash = move_hash
-      if move_hash[:p1_move]
-        @p1_move = move_hash[:p1_move]
-      end
-      if move_hash[:p2_move]
-        @p2_move = move_hash[:p2_move]
-      end
-      # a status of true indicates an active
+      # a status of true indicates an active round
       @status = true
     end
-
 
   end
 end
